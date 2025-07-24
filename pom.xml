@@ -4,7 +4,7 @@
                              http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.exemplo</groupId>
+    <groupId>com.standard</groupId>
     <artifactId>hexagonal-carrinho-jee</artifactId>
     <version>1.0.0</version>
     <dependencies>
@@ -28,7 +28,7 @@
             <artifactId>jakarta.annotation-api</artifactId>
             <version>2.1.1</version>
         </dependency>
-       
+
         <dependency>
             <groupId>org.jboss.narayana.jta</groupId>
             <artifactId>narayana-jta</artifactId>
