@@ -20,8 +20,6 @@ public class CarrinhoEventProducer {
     public void notificarCriacao(Carrinho c) {
         try {
             Connection connection = connectionFactory.createConnection();
-
-
           /*  try (JMSContext context = connectionFactory.createContext()) {
                 ObjectMessage msg = context.createObjectMessage(c.getId());
                 context.createProducer().send(queue, msg);*/
