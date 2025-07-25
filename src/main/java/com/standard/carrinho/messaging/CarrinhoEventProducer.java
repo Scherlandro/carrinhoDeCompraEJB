@@ -18,9 +18,24 @@ public class CarrinhoEventProducer {
     private Queue queue;
 
     public void notificarCriacao(Carrinho c) {
-        try (JMSContext context = connectionFactory.createContext()) {
-            ObjectMessage msg = context.createObjectMessage(c.getId());
-            context.createProducer().send(queue, msg);
+        try {
+            Connection connection = connectionFactory.createConnection();
+
+
+          /*  try (JMSContext context = connectionFactory.createContext()) {
+                ObjectMessage msg = context.createObjectMessage(c.getId());
+                context.createProducer().send(queue, msg);*/
+             try {
+                Session session =connection.createSession(false,Session.AUTO_ACKNOWLEDGE);
+                MessageProducer messageProducer = session.createProducer(queue);
+                TextMessage textMessage = session.createTextMessage(queue.toString());
+                messageProducer.send(textMessage);
+
+            } finally {
+                connection.close();
+            }
+        } catch (JMSException ex) {
+            // handle exception (details omitted)
         }
     }
 }
