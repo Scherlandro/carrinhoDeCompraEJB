@@ -32,11 +32,14 @@ public class CarrinhoService {
     @Transactional
     public void adicionarProduto(String carrinhoId, Produto produto, int quantidade) {
         Carrinho c = repository.buscar(carrinhoId);
+        if (c == null) {
+            throw new IllegalArgumentException("Carrinho não encontrado");
+        }
         c.adicionarProduto(produto, quantidade);
         repository.salvar(c);
     }
 
     public Carrinho buscarCarrinho(String id) {
-        return repository.buscar(id);
+         return repository.buscar(id);
     }
 }

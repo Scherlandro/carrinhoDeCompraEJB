@@ -22,7 +22,7 @@ public class CarrinhoResource {
 
     @POST
     public Carrinho criar(CarrinhoDto dto) {
-        return service.criarCarrinho(dto.id());
+       return service.criarCarrinho(dto.id());
     }
 
     @POST

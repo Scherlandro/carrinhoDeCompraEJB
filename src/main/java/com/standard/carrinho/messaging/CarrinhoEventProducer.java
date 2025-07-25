@@ -6,11 +6,7 @@ package com.standard.carrinho.messaging;
 import com.standard.carrinho.domain.model.Carrinho;
 import jakarta.annotation.Resource;
 import jakarta.ejb.Singleton;
-import jakarta.resource.cci.ConnectionFactory;
-import org.apache.logging.log4j.message.ObjectMessage;
-import jakarta.ejb.EJBContext;
-import java.util.Queue;
-
+import javax.jms.*;
 
 @Singleton
 public class CarrinhoEventProducer {
@@ -22,7 +18,7 @@ public class CarrinhoEventProducer {
     private Queue queue;
 
     public void notificarCriacao(Carrinho c) {
-        try (EJBContext context = connectionFactory.createContext()) {
+        try (JMSContext context = connectionFactory.createContext()) {
             ObjectMessage msg = context.createObjectMessage(c.getId());
             context.createProducer().send(queue, msg);
         }

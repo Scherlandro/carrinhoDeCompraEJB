@@ -1,24 +1,33 @@
 
 package com.standard.carrinho.messaging;
 
-import javax.ejb.MessageDriven;
+/*import javax.ejb.MessageDriven;
 import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
-import javax.jms.ObjectMessage;
+import javax.jms.ObjectMessage;*/
+
+import jakarta.ejb.MessageDriven;
+import jakarta.resource.ResourceException;
+import jakarta.resource.cci.MessageListener;
+import jakarta.resource.cci.Record;
+import org.apache.logging.log4j.message.ObjectMessage;
 
 @MessageDriven(mappedName = "java:/jms/queue/carrinho")
 public class CarrinhoListener implements MessageListener {
 
+
     @Override
-    public void onMessage(Message message) {
+    public Record onMessage(Record record) throws ResourceException {
+
         try {
-            if (message instanceof ObjectMessage om) {
-                String id = (String) om.getObject();
+            if (record instanceof ObjectMessage om) {
+                String id = (String) om.getParameter();//om.getObject();
                 System.out.println("Novo carrinho criado: " + id);
             }
-        } catch (JMSException e) {
+        } catch (Exception e) { //(JMSException e)
             e.printStackTrace();
         }
+        return null;
     }
 }

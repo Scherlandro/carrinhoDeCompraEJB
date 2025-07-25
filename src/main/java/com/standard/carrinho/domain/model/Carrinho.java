@@ -8,8 +8,10 @@ public class Carrinho {
     private String id;
     private List<ItemCarrinho> itens = new ArrayList<>();
 
+    public Carrinho() {}
+
     public Carrinho(String id) {
-        this.id = id;
+            this.id = id;
     }
 
     public void adicionarProduto(Produto produto, int quantidade) {

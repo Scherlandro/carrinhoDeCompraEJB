@@ -3,8 +3,8 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence ">
     <persistence-unit name="carrinhoPU" transaction-type="JTA">
         <jta-data-source>java:/jdbc/MeuDataSource</jta-data-source>
-        <class>com.exemplo.carrinho.adapter.out.persistence.entidade.CarrinhoEntity</class>
-        <class>com.exemplo.carrinho.adapter.out.persistence.entidade.ItemCarrinhoEntity</class>
+        <class>com.standard.carrinho.adapter.out.persistence.entidade.CarrinhoEntity</class>
+        <class>com.standard.carrinho.adapter.out.persistence.entidade.ItemCarrinhoEntity</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="update"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
