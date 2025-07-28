@@ -1,11 +1,6 @@
 
 package com.standard.carrinho.messaging;
 
-/*import javax.ejb.MessageDriven;
-import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageListener;
-import javax.jms.ObjectMessage;*/
 
 import jakarta.ejb.MessageDriven;
 import jakarta.resource.ResourceException;
